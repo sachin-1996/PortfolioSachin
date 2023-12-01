@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #040D12;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: #183D3D;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Style all font awesome icons */
+        .fa {
+        padding: 5px;
+        font-size: 15px;
+        width: 15px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+        }
+
+        /* Add a hover effect if you want */
+        .fa:hover {
+        opacity: 0.7;
+        }
+
+        /* Set a specific color for each brand */
+
+        /* linkedin */
+        .fa-linkedin {
+        background: #3B5998;
+        color: white;
+        }
+
+        /* github */
+        .fa-github {
+        background: #050505;
+        color: white;
+        }
+        /* Section Styles */
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #183D3D;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: box-shadow 0.3s;
+        }
+
+        /* Tab Styles */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #444141;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #183D3D;
+        }
+
+        /* Project Styles */
+        .project {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 0px;
+            position: relative;
+            background: #183D3D;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .project-box {
+            flex: 0 0 calc(33.33% - 20px);
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .project-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .project-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-description {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(15, 15, 15, 0.8);
+            border-radius: 0 0 8px 8px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project:hover .project-description {
+            opacity: 1;
+        }
+
+        /* Dope Slideshow Arrow Styles */
+        .arrow-container {
+            position: relative;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+        .arrow:hover {
+            background: linear-gradient(to right, #2196F3, #4CAF50);
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Center the slider between arrows */
+        .slider-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .arrow-container {
+            flex: 0 0 10%;
+        }
+
+        .slidecontainer {
+            flex: 1;
+            margin: 0 20px; /* Adjust margin as needed */
+        }
+
+        /* The slider itself */
+
+        /* Mouse-over effects */
+        .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+        }
+
+        .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border-radius: 10px;  
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        }
+
+        .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%; 
+        background: #04AA6D;
+        cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #04AA6D;
+        cursor: pointer;
+        }
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom, #333, #1a1a1a);
+            color: #fff;
+            border-radius: 0px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        /* Add styles for Machine Learning projects */
+        .machine-learning {
+            border: 2px solid #3498db;
+            background-color: #ecf0f1;
+            /* Add any additional styling for Machine Learning projects */
+        }
+
+        /* Add styles for Data Science projects */
+        .data-science {
+            border: 2px solid #27ae60;
+            background-color: #ecf0f1;
+            /* Add any additional styling for Data Science projects */
+        }
+
+        /* Add styles for Programming projects */
+        .programming {
+            border: 2px solid #e74c3c;
+            background-color: #ecf0f1;
+            /* Add any additional styling for Programming projects */
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Your Name</h1>
+        <p>Data Scientist | Machine Learning Enthusiast</p>
+        <a href="https://www.linkedin.com/in/sachintha-brandigampala-55844b231/" class="fa fa-linkedin"></a>
+        <a href="https://github.com/sachin-1996" class="fa fa-github"></a>
+    </header>
+
+    <section>
+        <h2>About Me</h2>
+        <p>Write a brief introduction about yourself here.</p>
+    </section>
+
+    <section>
+        <div class="tabs">
+            <button class="tab" onclick="filterProjects('all')">All</button>
+            <button class="tab" onclick="filterProjects('machine-learning')">Machine Learning</button>
+            <button class="tab" onclick="filterProjects('data-science')">Data Science</button>
+            <button class="tab" onclick="filterProjects('programming')">Programming</button>
+        </div>
+
+        <h2>Projects</h2>
+
+        <div class="project" id="project-container">
+            <!-- Project 1 - Machine Learning -->
+            <div class="project-box machine-learning" onclick="redirectToProjectPage('project1','project1')">
+                <img src="https://source.unsplash.com/800x600/?technology" alt="Project 1" class="project-img">
+                <div class="project-description">
+                    <h3><a href="https://github.com/sachin-1996">Project 1 Title</a></h3>
+                    <p>Short description of Project 1.</p>
+                </div>
+            </div>
+
+            <!-- Project 2 - Machine Learning -->
+            <div class="project-box machine-learning" onclick="redirectToProjectPage('project2', 'project2')">
+                <img src="https://source.unsplash.com/800x600/?coding" alt="Project 2" class="project-img">
+                <div class="project-description">
+                    <h3>Project 2 Title</h3>
+                    <p>Short description of Project 2.</p>
+                </div>
+            </div>
+
+            <!-- Project 3 - Data Science -->
+            <div class="project-box data-science" onclick="redirectToProjectPage('project3','project3')">
+                <img src="https://source.unsplash.com/800x600/?data" alt="Project 3" class="project-img">
+                <div class="project-description">
+                    <h3>Project 3 Title</h3>
+                    <p>Short description of Project 3.</p>
+                </div>
+            </div>
+
+            <!-- Project 4 - Programming -->
+            <div class="project-box programming" onclick="redirectToProjectPage('project4','project4')">
+                <img src="https://source.unsplash.com/800x600/?design" alt="Project 4" class="project-img">
+                <div class="project-description">
+                    <h3>Project 4 Title</h3>
+                    <p>Short description of Project 4.</p>
+                </div>
+            </div>
+
+            <!-- Project 5 - Programming -->
+            <div class="project-box programming" onclick="redirectToProjectPage('project5','project5')">
+                <img src="https://source.unsplash.com/800x600/?code" alt="Project 5" class="project-img">
+                <div class="project-description">
+                    <h3>Project 5 Title</h3>
+                    <p>Short description of Project 5.</p>
+                </div>
+            </div>
+
+            <!-- Project 6 - Machine Learning -->
+            <div class="project-box machine-learning" onclick="redirectToProjectPage('project6','project6')">
+                <img src="https://source.unsplash.com/800x600/?machinelearning" alt="Project 6" class="project-img">
+                <div class="project-description">
+                    <h3>Project 6 Title</h3>
+                    <p>Short description of Project 6.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-container">
+            <div class="arrow-container">
+                <button class="arrow arrow-left" onclick="scrollProjects(-100)">&#9665;</button>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+            <div class="arrow-container">
+                <button class="arrow arrow-right" onclick="scrollProjects(100)">&#9655;</button>
+            </div>
+        </div>
+        
+    </section>
+
+    <section>
+        <h2>Resume</h2>
+        <p>Include your resume or a link to your resume PDF here.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        var slider = document.getElementById("myRange");
+        var projectContainer = document.getElementById('project-container');
+    
+        // Display the default slider value and adjust the project container
+        var defaultSliderValue = Math.round((projectContainer.scrollLeft / (projectContainer.scrollWidth - projectContainer.clientWidth)) * 100);
+        slider.value = defaultSliderValue;
+    
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function () {
+            var scrollPercentage = this.value / 100;
+            var scrollPosition = (projectContainer.scrollWidth - projectContainer.clientWidth) * scrollPercentage;
+            projectContainer.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+        }
+    
+        // Update the slider value when scrolling the projects
+        projectContainer.onscroll = function () {
+            var scrollPercentage = (projectContainer.scrollLeft / (projectContainer.scrollWidth - projectContainer.clientWidth)) * 100;
+            slider.value = Math.round(scrollPercentage);
+        }
+    
+        function scrollProjects(scrollAmount) {
+            var containerWidth = projectContainer.clientWidth;
+            var scrollPercentage = (projectContainer.scrollLeft + scrollAmount) / (projectContainer.scrollWidth - containerWidth);
+            slider.value = Math.round(scrollPercentage * 100);
+            var scrollPosition = (projectContainer.scrollWidth - projectContainer.clientWidth) * scrollPercentage;
+            projectContainer.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+        }
+    
+        function filterProjects(category) {
+            var projectBoxes = document.querySelectorAll('.project-box');
+            projectBoxes.forEach(function (box) {
+                if (category !== 'all' && !box.classList.contains(category)) {
+                    box.classList.add('hidden');
+                } else {
+                    box.classList.remove('hidden');
+                }
+            });
+        }
+        
+        function redirectToProjectPage(projectId, targetSelector) {
+            let url;
+
+            switch (projectId) {
+                case 'project1':
+                    url = 'projects.html'; // Replace with actual URLs
+                    break;
+                case 'project2':
+                    url = 'projects.html'; // Replace with actual URLs
+                    break;
+                case 'project3':
+                    url = 'projects.html'; // Replace with actual URLs
+                    break;
+                case 'project4':
+                    url = 'projects.html'; // Replace with actual URLs
+                    break;
+                case 'project5':
+                    url = 'projects.html'; // Replace with actual URLs
+                    break;
+                case 'project6':
+                    url = 'projects.html'; // Replace with actual URLs
+                    break;
+
+                // Add cases for other projects...
+
+                default:
+                    break;
+            }
+
+            // Construct the URL with the section ID as the fragment identifier
+            const fullUrl = targetSelector ? `${url}#${targetSelector}` : url;
+
+            // Redirect to the full URL
+            window.open(fullUrl, '_blank');
+        }
+    </script>
+    
+    
+</body>
+
+</html>

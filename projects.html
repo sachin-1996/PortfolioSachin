@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe's Portfolio</title>
+    <style>
+        /* Add project-specific styles here */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        section {
+            padding: 2em;
+            margin: 2em 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom, #333, #1a1a1a);
+            color: #fff;
+            border-radius: 0px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>John Doe</h1>
+        <p>Data Scientist | Machine Learning Enthusiast</p>
+    </header>
+
+    <section id="project1">
+        <h2>Project 1: Predictive Analytics for Sales</h2>
+        <p>Implemented machine learning models to predict sales trends, resulting in a 20% increase in revenue.</p>
+
+        <img src="https://via.placeholder.com/800x400" alt="Project 1 Image">
+        <!-- Add more details, images, and links as needed -->
+    </section>
+
+    <section id="project2">
+        <h2>Project 2: Fraud Detection System</h2>
+        <p>Developed a robust fraud detection system using advanced algorithms, reducing fraudulent activities by 25%.</p>
+
+        <img src="https://via.placeholder.com/800x400" alt="Project 2 Image">
+        <!-- Add more details, images, and links as needed -->
+    </section>
+
+    <section id="project3">
+        <h2>Project 3: Customer Segmentation Analysis</h2>
+        <p>Conducted in-depth customer segmentation analysis, leading to personalized marketing strategies and a 15% boost in customer engagement.</p>
+
+        <img src="https://via.placeholder.com/800x400" alt="Project 3 Image">
+        <!-- Add more details, images, and links as needed -->
+    </section>
+
+    <section id="project4">
+        <h2>Project 4: Natural Language Processing</h2>
+        <p>Utilized NLP techniques to analyze customer reviews, providing valuable insights and enhancing product development processes.</p>
+
+        <img src="https://via.placeholder.com/800x400" alt="Project 4 Image">
+        <!-- Add more details, images, and links as needed -->
+    </section>
+
+    <section id="project5">
+        <h2>Project 5: Recommender System</h2>
+        <p>Developed a recommender system that improved user satisfaction and increased product adoption by 18%.</p>
+
+        <img src="https://via.placeholder.com/800x400" alt="Project 5 Image">
+        <!-- Add more details, images, and links as needed -->
+    </section>
+
+    <section id="project6">
+        <h2>Project 6: Time Series Forecasting</h2>
+        <p>Implemented time series forecasting models to optimize inventory management, resulting in a 30% reduction in stockouts.</p>
+
+        <img src="https://via.placeholder.com/800x400" alt="Project 6 Image">
+        <!-- Add more details, images, and links as needed -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 John Doe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the URL contains a fragment identifier (e.g., #section-id)
+            if (window.location.hash) {
+                // Get the target element by ID
+                var targetElement = document.getElementById(window.location.hash.substring(1));
+
+                // Scroll to the target element if it exists
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth' // Optional: Add smooth scrolling
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
